@@ -54,7 +54,14 @@ html {
 
 body {
 	display: flex; 
-	justify-content: center;
+	justify-content: center; 
+	flex-direction: column;
+}
+
+.app {
+	display: flex; 
+	justify-content: center; 
+	flex-direction: row;
 }
 
 h1 {
