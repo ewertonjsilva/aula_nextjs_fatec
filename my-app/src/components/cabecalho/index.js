@@ -1,24 +1,27 @@
+'use client';
 import Link from 'next/link'; 
+import { usePathname } from 'next/navigation'; 
 
 import { MdFastfood } from "react-icons/md";
 
 import styles from './index.module.css'; 
 
 export default function Header() {
+    const local = usePathname(); 
     return (
         <header>
             <nav className={styles.containerNav}>
                 <div className={styles.menu}>
                     <div>
                         <MdFastfood className={styles.icon} />
-                        <label for="" id="titulo">BomBurguer</label>
+                        <label id="titulo">BomBurguer</label>
                     </div>
                     <div className={styles.menuGrande}>
-                        <Link href={'/'}>Home</Link>
-                        <Link href={'/produtos'}>Produtos</Link>
-                        <Link href={'/cadusu'}>Cadastrar</Link>
-                        <Link href={'/contato'}>Contato</Link>
-                        <Link href={'/login'}>Login</Link>
+                        <Link href={'/'} className={local === '/' ? styles.active : ''}>Home</Link>
+                        <Link href={'/produtos'} className={local === '/produtos' ? styles.active : ''}>Produtos</Link>
+                        <Link href={'/cadusu'} className={local === '/cadusu' ? styles.active : ''}>Cadastrar</Link>
+                        <Link href={'/contato'} className={local === '/contato' ? styles.active : ''}>Contato</Link>
+                        <Link href={'/login'} className={local === '/login' ? styles.active : ''}>Login</Link>
                         {/* <a href="#" className={styles.active}>Login</a> */}
                     </div>
                     {/* <div className="menuMobile">
